@@ -1,0 +1,318 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    height:100%;
+    background-color: #b70000;
+    color:white;
+    overflow-x: hidden;
+
+}
+
+html{
+  scroll-behavior:smooth;
+}
+header{
+    position:relative;
+    height:100vh;
+    width:100%;
+}
+.li-header{
+    font-weight:600;
+    font-family:'eczar', sans-serif;
+    font-weight: 300;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    margin: 3px;
+   
+
+}
+.li-header::selection,#cat-txt::selection,#cat-txt2::selection,#site-name::selection {
+    background-color: transparent;
+}
+#site-name{
+    cursor: pointer;   
+}
+ul{
+    display: flex;
+    list-style-type: none;
+    width:30%;
+    justify-content:space-evenly;
+    position: relative;
+
+}
+.scroll-text{
+    text-decoration: none;
+    color: white;
+  
+}
+.cabeçalho{
+    display:flex;
+    position:absolute;
+    height:15%;
+    background-color: #272727;
+    box-shadow:2px 2px 2px 1px #0000004f;
+    width:100%; 
+    justify-content:space-between;
+    align-items:center;
+    z-index:1;
+}
+@keyframes slide-left{
+    
+    100%{
+        
+        transform:translateX(-100%);
+        
+    } 
+}
+    
+
+.cat-image{         
+    position: absolute;
+    top:15%;
+    height:100%;
+    width:100%;
+    background-size: cover;
+    display:flex;
+}
+@font-face {
+    font-family: 'eczar';
+    src: url(../css/static/Eczar-Medium.ttf);
+}
+@font-face {
+    font-family:'fortheenas' ;
+    src: url(Fortheenas_01.otf) format('truetype');
+}
+.cat-txt{
+    letter-spacing: 0.01em;
+    font-family: 'fortheenas', sans-serif;
+    font-size: 3vw;
+    max-height: 3vw;
+    color:#FFFFFF;
+    font-weight:900;
+    position:absolute;
+    top: 20%; 
+    left: 10%;  
+    transition: ease 0.3s; 
+    background-color: #000000c3;
+    border-radius: 5px;
+    padding: 5px;
+
+}/*color:#363a5e;*/
+.cat-txt2{  
+    position: absolute;
+    width: 40%;
+    font-size:2vw;
+    padding: 5px;
+    color:#ffffff;
+    max-width: 30vw;
+    max-height: 30vw;
+    font-family:'verdana',sans-serif;
+    transition: ease 0.3s;
+    background-color: #000000c3;
+    border-radius: 5px;
+    padding: 5px 5px 20px 5px;
+    top:35%;
+    left:10%;
+}
+#backGround-1{
+    animation: slide-left 2.5s forwards;
+    animation-play-state:paused; 
+    background-image:url(../img/cat-image.png); 
+    right: 0%;
+}
+#backGround-2{
+    right:-100%;
+    animation: slide-left 2.5s forwards;
+    animation-play-state: paused; 
+    background-image:url(../img/gibis.png);
+}
+#backGround-3{
+    right:-200%;
+    animation: slide-left 2.5s forwards;
+    animation-play-state: paused; 
+    background-image:url(../img/van-gogh.jpg);    
+}
+ .janela-contato{
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border:1px solid rgba(0, 0, 0, 0.548);
+    box-shadow:none ;   
+    cursor: default;
+    outline: none   ;
+    width:100%;
+    max-width: 5vw;
+    height:20vh;
+    max-width: 20vh;
+    position:absolute;
+    padding: 5px;
+    opacity: 0.9;
+    
+    
+    
+ } 
+ .link-contato{
+    width: 70%;
+    height: auto;
+    text-decoration: none;
+    max-width:5vw;
+    cursor: default;
+    outline: none   ;
+ }
+ .Contato{
+    height: auto;
+    width: 100%;
+    cursor: pointer;
+ }
+ #div-contato{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+ } 
+#section-menu{
+    background-color: #272727;
+    position: relative;
+    box-shadow:0 -50px 100px #000 ;
+    display: flex;
+    width: 100%;
+    height:100vh;
+    
+}
+.menu{
+    width: 50%;
+    height: 100%;
+        
+}
+#cardapio{
+    background-color: #2f2f2f;
+    position: relative;
+    
+}
+#comidas{
+    background-image:url(../img/banner-coca.jpeg);
+    background-position-x:50%;
+    background-position-y: 70%;
+    background-size: cover;
+    filter:saturate(25%);
+    
+
+
+}
+.menu-2{
+    background-color: rgb(31, 31, 31);
+    position: absolute;
+    left: 5%;
+    height: 45%;
+    margin: 5px 0  0 10px;
+    width: 80%;
+    bottom: 15px;
+    border-radius: 15px;
+    box-shadow: #2c2c2c 2px 2px 1px 4px;
+
+}
+
+#cardapio-escolha{
+    font-family: eczar; 
+    font-size: 30px;
+    
+}
+#side-menu{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    
+}
+.arrow-button {
+    margin: 15px 15px 0 15px;
+    width: 30px;
+    height: 30px;
+    border:solid 1px black;
+    border-radius: 10px;
+}
+.iguarias{
+    width: 18%;
+    height: 100px;
+    max-height:10vh;
+    border-radius: 50%;
+    border: #000 solid 1px;  
+    cursor: pointer;
+
+}
+.grupoDeIguarias{
+    display: flex;
+    justify-content: space-around;
+    margin:20px 10px 5px 10px;
+}
+.infoIguaria{
+    position: absolute;
+    left:5%;
+    width: 80%;
+}
+#nome-produto{
+    font-size: 50px;
+}
+#preco-produto{
+    font-size: 50px;
+    margin:10px 0 20px 0;
+}
+#info-produto{
+    font-size: 1.5vw;
+}
+#aboutUs{
+    height:100vh;
+    width:100%;
+    background-color:rgb(53, 53, 53);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    max-height: 100vh;
+    justify-content: center;
+
+}
+#cafeAbout{
+    display: inline-block;
+    width: 20%;
+    opacity: 0.5;
+}
+.div-about{
+    background-color:rgb(96, 96, 96) ;
+    border-radius: 15px;
+    width: 30%;
+    padding: 10px;
+    height: 70%;
+    box-shadow: #2c2c2c 2px 2px 1px 4px; 
+
+}
+.flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50%;
+    box-shadow: #2c2c2c 2px 2px 1px 4px; 
+    position: relative;
+    left:1%;
+    max-height: 50vh;
+    width: 96%;
+    margin:5px;
+    border-radius: 10px;
+
+}
+.img-about{
+    display: block;
+    width: 30%;
+    height: 90%;
+}
+#xicaraPixel{
+    width: 20%;
+}
+footer{
+    background-color: #232323;
+    height: 15vh; 
+   position: relative;
+   box-shadow: black 0 -10px 200px;
+}
