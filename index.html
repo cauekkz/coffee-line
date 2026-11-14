@@ -4,169 +4,193 @@
         <meta charset="UTF-8">
         <meta name="author" content="Cauê">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>HOME| Cofe line</title>
+        <meta name="description" content="Coffe Line: cafeteria com quadrinhos, mangás e latte art inspirada em obras de arte.">
+        <title>HOME | Coffe Line</title>
         <link rel="stylesheet" href="static/css/style.css">
         <link rel="stylesheet" href="static/css/style2.css">
-        <link rel="icon" href="static/img/logo.png" type="image/x-icon">
+        <link rel="icon" href="static/img/logo.png" type="image/png">
     </head>
 
-    <body onload="abrirForm()">
-        <dialog  id="dialog-form" >
-            <form id="form-login">
-                <img src="static/img/form/name-header.png" alt="logo-login" id="login-logo">
+    <body>
+        <a class="pular" href="#section-menu">Pular para o cardápio</a>
+
+        <dialog id="dialog-form" aria-labelledby="login">
+            <form id="form-login" novalidate>
+                <button type="button" class="fechar-dialog" onclick="fecharForm()" aria-label="Fechar login">&times;</button>
+                <img src="static/img/form/name-header.png" alt="Coffe Line" id="login-logo">
                 <h3 id="login">Login</h3>
 
-            <div id="login-imgs">
-                <img class="imgform" src="static/img/form/facebook.png" alt="login-face">
-                <img class="imgform" src="static/img/form/chorome.png" alt="login-chorome">
-                <img class="imgform" src="static/img/form/apple.png" alt="login-apple">
-            </div>
-            <div>
-
-                <label  for="email" class="input-area">email</label><br>
-                <input type="email" name="email" id="contact" class="input-area"><br>
-                <label  for="senha" class="input-area">senha</label><br class="br">
-                <input type="password" id="senha" class="input-area"><br>
-                <span class="spanCad">não tem cadastro? <a href="cadastro.html" style="color: white;">Cadastrar</a></span>
-
-            </div>
-            <div>
-                <input id="button-logar"type="submit" value="entrar">
-            </div>
-           </form>
-
+                <div id="login-imgs">
+                    <button type="button" class="imgform" aria-label="Entrar com Facebook"><img src="static/img/form/facebook.png" alt=""></button>
+                    <button type="button" class="imgform" aria-label="Entrar com Google"><img src="static/img/form/chorome.png" alt=""></button>
+                    <button type="button" class="imgform" aria-label="Entrar com Apple"><img src="static/img/form/apple.png" alt=""></button>
+                </div>
+                <div class="campos-login">
+                    <label for="contact" class="input-area">email</label>
+                    <input type="email" name="email" id="contact" class="input-area" autocomplete="email" required>
+                    <label for="senha" class="input-area">senha</label>
+                    <input type="password" name="senha" id="senha" class="input-area" autocomplete="current-password" required>
+                    <p id="erro-login" role="alert"></p>
+                    <span class="spanCad">não tem cadastro? <a href="cadastro.html">Cadastrar</a></span>
+                </div>
+                <div>
+                    <input id="button-logar" type="submit" value="entrar">
+                </div>
+            </form>
         </dialog>
+
         <header id="header">
             <div class="cabeçalho">
-            <img src="static/img/form/name-header.png"  onclick="reload()" id="site-name" width="15%" height="auto" style="margin-left:10px;" >
-                <ul>
-
-                    <li class="li-header">
-                        <a class="scroll-text" href="#slide-animation">Inicio</a>
-
-                    </li>
-                    <li class="li-header">
-                       <a class="scroll-text" href="#aboutUs">Sobre Nós</a>
-                    </li>
-                    <li class="li-header">
-                    <a class="scroll-text" href="#section-menu"> Cardápio</a>
-                    </li>
-                    <li class="li-header" onclick="contatos()">
-                        Contato
-
-                        <dialog class="janela-contato" id="janela-contato" >
-                            <div id="div-contato">
-
-                                <a class="link-contato" href="https://www.instagram.com/lukkzjj/" target="_blank">    <img src="static/img/face.png" alt="facebook Contato">
-                                </a>
-                                <a class="link-contato" href="https://www.instagram.com/cauekkzjj/" target="_blank">    <img src="static/img/instagran.png" alt="instagran contatos">
-                                </a>
-                            </div>
-                        </dialog>
-
-                    </li>
-
-                </ul>
-
+                <button type="button" class="logo-botao" onclick="reload()" aria-label="Coffe Line, voltar ao início">
+                    <img src="static/img/form/name-header.png" alt="" id="site-name">
+                </button>
+                <nav aria-label="Principal">
+                    <ul>
+                        <li class="li-header">
+                            <a class="scroll-text" href="#header">Inicio</a>
+                        </li>
+                        <li class="li-header">
+                            <a class="scroll-text" href="#aboutUs">Sobre Nós</a>
+                        </li>
+                        <li class="li-header">
+                            <a class="scroll-text" href="#section-menu">Cardápio</a>
+                        </li>
+                        <li class="li-header" id="item-contato">
+                            <button type="button" id="botao-contato" class="scroll-text" onclick="contatos()" aria-expanded="false" aria-controls="janela-contato">Contato</button>
+                            <dialog class="janela-contato" id="janela-contato">
+                                <div id="div-contato">
+                                    <span class="link-contato">
+                                        <img class="Contato" src="static/img/face.png" alt="Facebook">
+                                    </span>
+                                    <span class="link-contato">
+                                        <img class="Contato" src="static/img/instagran.png" alt="Instagram">
+                                    </span>
+                                </div>
+                            </dialog>
+                        </li>
+                        <li class="li-header">
+                            <button type="button" id="botao-entrar" class="scroll-text botao-entrar" onclick="abrirForm()">Entrar</button>
+                            <span id="saudacao" hidden><span></span> · <button type="button" class="scroll-text link-sair" onclick="sair()">sair</button></span>
+                        </li>
+                    </ul>
+                </nav>
             </div>
 
-                <div class="cat-image" id="backGround-1">
-                        <h2 class="cat-txt" >Entre no nosso mundo em 2D!!  </h2>
-                        <p class="cat-txt2">
-
-                            Em nossa cafeteria, cada xícara de café é uma tela em branco,
-                            esperando para ser preenchida com sabores
-                            vibrantes e aromas que despertam.
-
-                        </p>
+            <div class="cat-image" id="backGround-1" role="group" aria-roledescription="slide" aria-label="1 de 3">
+                <h2 class="cat-txt">Entre no nosso mundo em 2D!!</h2>
+                <p class="cat-txt2">
+                    Em nossa cafeteria, cada xícara de café é uma tela em branco,
+                    esperando para ser preenchida com sabores
+                    vibrantes e aromas que despertam.
+                </p>
+            </div>
+            <div id="slide-animation">
+                <div class="cat-image" id="backGround-2" role="group" aria-roledescription="slide" aria-label="2 de 3">
+                    <h2 class="cat-txt">Sabores que Contam Histórias</h2>
+                    <p class="cat-txt2">
+                        Oferecemos um espaço onde é possível saborear o café enquanto
+                        se deleita com histórias em quadrinhos.
+                    </p>
                 </div>
-                <div id="slide-animation">
-                    <div class="cat-image" id="backGround-2">
-                        <h2 class="cat-txt">Sabores que Contam Histórias</h2>
-                        <p class="cat-txt2">
-
-                            Oferecemos um espaço onde é possível saborear o café enquanto
-                            se deleita com histórias em quadrinhos.
-
-                        </p>
-                    </div>
-                    <div class="cat-image" id="backGround-3">
-
-                        <h2 class="cat-txt">Cada Latte, uma Obra de Gênio</h2>
-                        <p class="cat-txt2">
-
-                            Cada xícara é uma tela onde as nuances das pinturas famosas ganham vida,
-                            em um verdadeiro espetáculo para os olhos e o paladar.
-
-
-                        </p>
-                    </div>
+                <div class="cat-image" id="backGround-3" role="group" aria-roledescription="slide" aria-label="3 de 3">
+                    <h2 class="cat-txt">Cada Latte, uma Obra de Gênio</h2>
+                    <p class="cat-txt2">
+                        Cada xícara é uma tela onde as nuances das pinturas famosas ganham vida,
+                        em um verdadeiro espetáculo para os olhos e o paladar.
+                    </p>
                 </div>
-
-
+            </div>
+            <div class="pontos-slide" aria-label="Escolher slide">
+                <button type="button" class="ponto-slide" aria-label="Slide 1"></button>
+                <button type="button" class="ponto-slide" aria-label="Slide 2"></button>
+                <button type="button" class="ponto-slide" aria-label="Slide 3"></button>
+            </div>
+            <a class="cta-hero" href="#section-menu">Ver cardápio</a>
         </header>
-        <section id="section-menu">
 
+        <main>
+            <section id="section-menu" aria-labelledby="cardapio-escolha">
                 <div class="menu" id="cardapio">
-
-                    <nav id="side-menu">
-                        <button id="left" onclick="changeClassOfFoods(event)" class="arrow-button" c>🠔</button>
-                        <h3  id="cardapio-escolha" >Bebidas</h3>
-                        <button id="right" onclick="changeClassOfFoods(event)" class="arrow-button">➞</button>
-
+                    <nav id="side-menu" aria-label="Categorias do cardápio">
+                        <button id="left" onclick="changeClassOfFoods(event)" class="arrow-button" aria-label="Categoria anterior">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+                        </button>
+                        <h3 id="cardapio-escolha" aria-live="polite">Bebidas</h3>
+                        <button id="right" onclick="changeClassOfFoods(event)" class="arrow-button" aria-label="Próxima categoria">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+                        </button>
                     </nav>
-                    <div class="infoIguaria">
+                    <div class="infoIguaria" aria-live="polite">
                         <h3 id="nome-produto">Coca-Cola 600ml</h3>
-                        <h3 id="preco-produto">R$8,99</h3>
-                        <p id="info-produto">A Coca-Cola é uma bebida carbonatada popular. Seus ingredientes comuns incluem água carbonatada, açúcar (xarope de milho rico em frutose), corante caramelo, ácido fosfórico, sabores naturais e cafeína.
-
-                        </p>
-
+                        <h3 id="preco-produto">R$ 8,99</h3>
+                        <p id="info-produto"></p>
                     </div>
                     <div class="menu-2">
-                        <div class="grupoDeIguarias">
-                            <img onclick="changeImage(event)" id="coca" class="iguarias" src="static/img/coca.jpg" alt="alimento do cardapio">
-                            <img onclick="changeImage(event)" id="pepsi" class="iguarias" src="static/img/pepsi.jpeg" alt="alimento do cardapio">
-                            <img onclick="changeImage(event)" id="guarana" class="iguarias" src="static/img/guarana.jpg" alt="alimento do cardapio">
-                        </div>
-                        <div class="grupoDeIguarias">
-                            <img onclick="changeImage(event)" id="fanta" class="iguarias" src="static/img/fanta.jpg" alt="alimento do cardapio">
-                            <img onclick="changeImage(event)" id="sprite" class="iguarias" src="static/img/sprite.jpg" alt="alimento do cardapio">
-                            <img onclick="changeImage(event)" id="coca0" class="iguarias" src="static/img/coca0.jpg" alt="alimento do cardapio">
-                            </div>
-                        <div class="grupoDeIguarias">
-                            <img onclick="changeImage(event)" id="dell" class="iguarias" src="static/img/dell.jpg" alt="alimento do cardapio">
-                            <img onclick="changeImage(event)" id="bull" class="iguarias" src="static/img/bull.jpg" alt="alimento do cardapio">
-                            <img onclick="changeImage(event)" id="monster" class="iguarias" src="static/img/monster.png" alt="alimento do cardapio">
-                        </div>
+                        <div class="grupoDeIguarias" id="grade-iguarias"></div>
                     </div>
                 </div>
-                <div class="menu" id="comidas">
-                </div>
-        </section>
-        <section id="aboutUs">
-            <div class="flex">
-                <div class="div-about">
-                    <h3 style="font-family: eczar;font-size: 3.5vw;">Como começou</h3>
-                    <p style="font-size: 1vw;font-family: eczar;max-height:60%;">O projeto começou em uma conversa casual,em uma ideia de abrir uma cafeteria,rapidamente se transformou em um projeto apaixonante.
-                        com a adição do amigo Daniel,que tinha experiência com culinária e receitas com toque especial,onde iniciou seu sonho em realidade</p>
-                </div>
-                <img class="img-about" id="cafeAbout" src="static/img/aboutUs.png" alt="sobre nós arte">
-            </div>
-            <div class="flex">
-                <div class="div-about">
-                    <h3 style="font-family: eczar;font-size: 3.5vw;">Cardápio único</h3>
-                    <p style="font-size: 1vw;font-family: eczar;max-height: 30%;">Descubra o nosso cardápio cuidadosamente elaborado, onde cada item é uma celebração de sabores. Desde cafés artesanais até deliciosos quitutes, oferecemos uma variedade de opções para satisfazer todos os paladares.</p>
+                <div class="menu" id="comidas" role="img" aria-label="Coca-Cola 600ml"></div>
+            </section>
 
+            <section id="aboutUs" aria-label="Sobre nós">
+                <div class="flex">
+                    <div class="div-about">
+                        <h3>Como começou</h3>
+                        <p>O projeto começou em uma conversa casual, com a ideia de abrir uma cafeteria, e rapidamente se transformou em um projeto apaixonante.
+                            Com a chegada do amigo Daniel, que tinha experiência com culinária e receitas com um toque especial, o sonho virou realidade.</p>
+                    </div>
+                    <img class="img-about" id="cafeAbout" src="static/img/aboutUs.png" alt="Copo de café em pixel art">
                 </div>
-                <img class="img-about" id="xicaraPixel" src="static/img/aboutUs2.png" alt="sobre nós arte">
-            </div>
-        </section>
+                <div class="flex">
+                    <div class="div-about">
+                        <h3>Cardápio único</h3>
+                        <p>Descubra o nosso cardápio cuidadosamente elaborado, onde cada item é uma celebração de sabores. Desde cafés artesanais até deliciosos quitutes, oferecemos uma variedade de opções para satisfazer todos os paladares.</p>
+                        <a class="link-about" href="#section-menu">Explorar o cardápio</a>
+                    </div>
+                    <img class="img-about" id="xicaraPixel" src="static/img/aboutUs2.png" alt="Xícara de café em pixel art">
+                </div>
+            </section>
+
+            <section id="planos-cta" aria-labelledby="titulo-planos">
+                <div>
+                    <h2 id="titulo-planos">Vire membro da Coffe Line</h2>
+                    <p>Biblioteca de mangás, latte art personalizada e menu exclusivo. Escolha entre os planos Comum, Premium e VIP.</p>
+                </div>
+                <a class="botao-planos" href="cadastro.html">Conhecer os planos</a>
+            </section>
+        </main>
+
         <footer>
-            <div>
-
+            <div class="rodape">
+                <div class="rodape-col">
+                    <img src="static/img/logo.png" alt="Coffe Line" class="rodape-logo" width="64" height="64">
+                    <p>Café, quadrinhos e arte na mesma xícara.</p>
+                </div>
+                <div class="rodape-col">
+                    <h4>Horário</h4>
+                    <p>Seg a Sex · 7h às 20h</p>
+                    <p>Sáb e Dom · 9h às 22h</p>
+                </div>
+                <div class="rodape-col">
+                    <h4>Navegar</h4>
+                    <a href="#header">Inicio</a>
+                    <a href="#section-menu">Cardápio</a>
+                    <a href="#aboutUs">Sobre Nós</a>
+                    <a href="cadastro.html">Planos</a>
+                </div>
+                <div class="rodape-col">
+                    <h4>Siga a gente</h4>
+                    <div class="rodape-redes">
+                        <span><img src="static/img/face.png" alt="Facebook"></span>
+                        <span><img src="static/img/instagran.png" alt="Instagram"></span>
+                    </div>
+                </div>
             </div>
+            <p class="copyright">&copy; <span id="ano-atual">2024</span> Coffe Line. Feito com café.</p>
         </footer>
+
+        <script src="static/JavaScript/cardapio.js"></script>
+        <script src="static/JavaScript/auth.js"></script>
         <script src="static/JavaScript/CF.js"></script>
         <script src="static/JavaScript/CF2.js"></script>
     </body>
