@@ -28,13 +28,11 @@ Built with plain HTML, CSS and JavaScript: no framework, no dependencies.
 - **plans** Basic, Premium and VIP, with sign-up, discount coupons and login
 - **works on mobile** just like on desktop
 
-> The site itself is in Portuguese.
-
 <br>
 
-![Menu](docs/cardapio.jpg)
+![Menu](docs/menu.jpg)
 
-![Plans](docs/planos.jpg)
+![Plans](docs/plans.jpg)
 
 <p align="center">
   <img src="docs/mobile.jpg" alt="Mobile version" width="600">
@@ -63,15 +61,15 @@ and go to `http://localhost:8000`.
 
 ```
 ├── index.html          home
-├── cadastro.html       plans and sign-up
+├── signup.html         plans and sign-up
 └── static/
-    ├── css/            home styles + fonts
-    ├── css-form/       sign-up styles
-    ├── JavaScript/     banner, menu and login
-    ├── js-form/        sign-up validation
-    ├── img/            site images
-    │   └── cardapio/   pixel art of the products
-    └── img-form/       plan backgrounds
+    ├── css/            home.css, login.css, signup.css
+    ├── fonts/          Eczar and Fortheenas
+    ├── js/             menu-data.js, home.js, login.js, auth.js, signup.js
+    └── img/
+        ├── menu/       pixel art of the products
+        ├── plans/      plan backgrounds
+        └── login/      login dialog images
 ```
 
 <br>

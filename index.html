@@ -1,197 +1,196 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="author" content="Cauê">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Coffe Line: cafeteria com quadrinhos, mangás e latte art inspirada em obras de arte.">
-        <title>HOME | Coffe Line</title>
-        <link rel="stylesheet" href="static/css/style.css">
-        <link rel="stylesheet" href="static/css/style2.css">
+        <meta name="description" content="Coffee Line: a coffee shop with comics, manga and latte art inspired by famous paintings.">
+        <title>HOME | Coffee Line</title>
+        <link rel="stylesheet" href="static/css/home.css">
+        <link rel="stylesheet" href="static/css/login.css">
         <link rel="icon" href="static/img/logo.png" type="image/png">
     </head>
 
     <body>
-        <a class="pular" href="#section-menu">Pular para o cardápio</a>
+        <a class="skip-link" href="#section-menu">Skip to the menu</a>
 
-        <dialog id="dialog-form" aria-labelledby="login">
-            <form id="form-login" novalidate>
-                <button type="button" class="fechar-dialog" onclick="fecharForm()" aria-label="Fechar login">&times;</button>
-                <img src="static/img/form/name-header.png" alt="Coffe Line" id="login-logo">
-                <h3 id="login">Login</h3>
+        <dialog id="login-dialog" aria-labelledby="login-title">
+            <form id="login-form" novalidate>
+                <button type="button" class="close-dialog" onclick="closeLogin()" aria-label="Close login">&times;</button>
+                <img src="static/img/login/name-header.png" alt="Coffee Line" id="login-logo">
+                <h3 id="login-title">Login</h3>
 
-                <div id="login-imgs">
-                    <button type="button" class="imgform" aria-label="Entrar com Facebook"><img src="static/img/form/facebook.png" alt=""></button>
-                    <button type="button" class="imgform" aria-label="Entrar com Google"><img src="static/img/form/chorome.png" alt=""></button>
-                    <button type="button" class="imgform" aria-label="Entrar com Apple"><img src="static/img/form/apple.png" alt=""></button>
+                <div id="social-logins">
+                    <button type="button" class="social-login" aria-label="Log in with Facebook"><img src="static/img/login/facebook.png" alt=""></button>
+                    <button type="button" class="social-login" aria-label="Log in with Google"><img src="static/img/login/google.png" alt=""></button>
+                    <button type="button" class="social-login" aria-label="Log in with Apple"><img src="static/img/login/apple.png" alt=""></button>
                 </div>
-                <div class="campos-login">
-                    <label for="contact" class="input-area">email</label>
-                    <input type="email" name="email" id="contact" class="input-area" autocomplete="email" required>
-                    <label for="senha" class="input-area">senha</label>
-                    <input type="password" name="senha" id="senha" class="input-area" autocomplete="current-password" required>
-                    <p id="erro-login" role="alert"></p>
-                    <span class="spanCad">não tem cadastro? <a href="cadastro.html">Cadastrar</a></span>
+                <div class="login-fields">
+                    <label for="login-email" class="input-area">email</label>
+                    <input type="email" name="email" id="login-email" class="input-area" autocomplete="email" required>
+                    <label for="login-password" class="input-area">password</label>
+                    <input type="password" name="password" id="login-password" class="input-area" autocomplete="current-password" required>
+                    <p id="login-error" role="alert"></p>
+                    <span class="signup-hint">no account yet? <a href="signup.html">Sign up</a></span>
                 </div>
                 <div>
-                    <input id="button-logar" type="submit" value="entrar">
+                    <input id="login-submit" type="submit" value="log in">
                 </div>
             </form>
         </dialog>
 
         <header id="header">
-            <div class="cabeçalho">
-                <button type="button" class="logo-botao" onclick="reload()" aria-label="Coffe Line, voltar ao início">
-                    <img src="static/img/form/name-header.png" alt="" id="site-name">
+            <div class="header-bar">
+                <button type="button" class="logo-button" onclick="scrollToTop()" aria-label="Coffee Line, back to top">
+                    <img src="static/img/login/name-header.png" alt="" id="site-name">
                 </button>
-                <nav aria-label="Principal">
+                <nav aria-label="Main">
                     <ul>
-                        <li class="li-header">
-                            <a class="scroll-text" href="#header">Inicio</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#header">Home</a>
                         </li>
-                        <li class="li-header">
-                            <a class="scroll-text" href="#aboutUs">Sobre Nós</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about-us">About Us</a>
                         </li>
-                        <li class="li-header">
-                            <a class="scroll-text" href="#section-menu">Cardápio</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section-menu">Menu</a>
                         </li>
-                        <li class="li-header" id="item-contato">
-                            <button type="button" id="botao-contato" class="scroll-text" onclick="contatos()" aria-expanded="false" aria-controls="janela-contato">Contato</button>
-                            <dialog class="janela-contato" id="janela-contato">
-                                <div id="div-contato">
-                                    <span class="link-contato">
-                                        <img class="Contato" src="static/img/face.png" alt="Facebook">
+                        <li class="nav-item" id="contact-item">
+                            <button type="button" id="contact-button" class="nav-link" onclick="toggleContact()" aria-expanded="false" aria-controls="contact-popup">Contact</button>
+                            <dialog class="contact-popup" id="contact-popup">
+                                <div id="contact-links">
+                                    <span class="contact-link">
+                                        <img class="contact-icon" src="static/img/facebook.png" alt="Facebook">
                                     </span>
-                                    <span class="link-contato">
-                                        <img class="Contato" src="static/img/instagran.png" alt="Instagram">
+                                    <span class="contact-link">
+                                        <img class="contact-icon" src="static/img/instagram.png" alt="Instagram">
                                     </span>
                                 </div>
                             </dialog>
                         </li>
-                        <li class="li-header">
-                            <button type="button" id="botao-entrar" class="scroll-text botao-entrar" onclick="abrirForm()">Entrar</button>
-                            <span id="saudacao" hidden><span></span> · <button type="button" class="scroll-text link-sair" onclick="sair()">sair</button></span>
+                        <li class="nav-item">
+                            <button type="button" id="login-button" class="nav-link login-button" onclick="openLogin()">Log in</button>
+                            <span id="greeting" hidden><span></span> · <button type="button" class="nav-link logout-link" onclick="logout()">log out</button></span>
                         </li>
                     </ul>
                 </nav>
             </div>
 
-            <div class="cat-image" id="backGround-1" role="group" aria-roledescription="slide" aria-label="1 de 3">
-                <h2 class="cat-txt">Entre no nosso mundo em 2D!!</h2>
-                <p class="cat-txt2">
-                    Em nossa cafeteria, cada xícara de café é uma tela em branco,
-                    esperando para ser preenchida com sabores
-                    vibrantes e aromas que despertam.
+            <div class="slide" id="slide-1" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                <h2 class="slide-title">Step into our 2D world!!</h2>
+                <p class="slide-text">
+                    In our coffee shop, every cup of coffee is a blank canvas,
+                    waiting to be filled with vibrant flavors
+                    and aromas that wake you up.
                 </p>
             </div>
-            <div id="slide-animation">
-                <div class="cat-image" id="backGround-2" role="group" aria-roledescription="slide" aria-label="2 de 3">
-                    <h2 class="cat-txt">Sabores que Contam Histórias</h2>
-                    <p class="cat-txt2">
-                        Oferecemos um espaço onde é possível saborear o café enquanto
-                        se deleita com histórias em quadrinhos.
+            <div id="slide-track">
+                <div class="slide" id="slide-2" role="group" aria-roledescription="slide" aria-label="2 of 3">
+                    <h2 class="slide-title">Flavors That Tell Stories</h2>
+                    <p class="slide-text">
+                        A place where you can enjoy your coffee while
+                        getting lost in a good comic book.
                     </p>
                 </div>
-                <div class="cat-image" id="backGround-3" role="group" aria-roledescription="slide" aria-label="3 de 3">
-                    <h2 class="cat-txt">Cada Latte, uma Obra de Gênio</h2>
-                    <p class="cat-txt2">
-                        Cada xícara é uma tela onde as nuances das pinturas famosas ganham vida,
-                        em um verdadeiro espetáculo para os olhos e o paladar.
+                <div class="slide" id="slide-3" role="group" aria-roledescription="slide" aria-label="3 of 3">
+                    <h2 class="slide-title">Every Latte, a Work of Genius</h2>
+                    <p class="slide-text">
+                        Every cup is a canvas where the nuances of famous paintings come to life,
+                        a true feast for the eyes and the palate.
                     </p>
                 </div>
             </div>
-            <div class="pontos-slide" aria-label="Escolher slide">
-                <button type="button" class="ponto-slide" aria-label="Slide 1"></button>
-                <button type="button" class="ponto-slide" aria-label="Slide 2"></button>
-                <button type="button" class="ponto-slide" aria-label="Slide 3"></button>
+            <div class="slide-dots" aria-label="Choose a slide">
+                <button type="button" class="slide-dot" aria-label="Slide 1"></button>
+                <button type="button" class="slide-dot" aria-label="Slide 2"></button>
+                <button type="button" class="slide-dot" aria-label="Slide 3"></button>
             </div>
-            <a class="cta-hero" href="#section-menu">Ver cardápio</a>
+            <a class="cta-hero" href="#section-menu">See the menu</a>
         </header>
 
         <main>
-            <section id="section-menu" aria-labelledby="cardapio-escolha">
-                <div class="menu" id="cardapio">
-                    <nav id="side-menu" aria-label="Categorias do cardápio">
-                        <button id="left" onclick="changeClassOfFoods(event)" class="arrow-button" aria-label="Categoria anterior">
+            <section id="section-menu" aria-labelledby="menu-category">
+                <div class="menu" id="menu-panel">
+                    <nav id="side-menu" aria-label="Menu categories">
+                        <button id="left" onclick="changeCategory(event)" class="arrow-button" aria-label="Previous category">
                             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
                         </button>
-                        <h3 id="cardapio-escolha" aria-live="polite">Bebidas</h3>
-                        <button id="right" onclick="changeClassOfFoods(event)" class="arrow-button" aria-label="Próxima categoria">
+                        <h3 id="menu-category" aria-live="polite">Drinks</h3>
+                        <button id="right" onclick="changeCategory(event)" class="arrow-button" aria-label="Next category">
                             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
                         </button>
                     </nav>
-                    <div class="infoIguaria" aria-live="polite">
-                        <h3 id="nome-produto">Coca-Cola 600ml</h3>
-                        <h3 id="preco-produto">R$ 8,99</h3>
-                        <p id="info-produto"></p>
+                    <div class="menu-info" aria-live="polite">
+                        <h3 id="product-name">Coca-Cola 600ml</h3>
+                        <h3 id="product-price">R$8.99</h3>
+                        <p id="product-info"></p>
                     </div>
-                    <div class="menu-2">
-                        <div class="grupoDeIguarias" id="grade-iguarias"></div>
+                    <div class="menu-grid-wrap">
+                        <div class="menu-grid" id="menu-grid"></div>
                     </div>
                 </div>
-                <div class="menu" id="comidas" role="img" aria-label="Coca-Cola 600ml"></div>
+                <div class="menu" id="menu-banner" role="img" aria-label="Coca-Cola 600ml"></div>
             </section>
 
-            <section id="aboutUs" aria-label="Sobre nós">
+            <section id="about-us" aria-label="About us">
                 <div class="flex">
-                    <div class="div-about">
-                        <h3>Como começou</h3>
-                        <p>O projeto começou em uma conversa casual, com a ideia de abrir uma cafeteria, e rapidamente se transformou em um projeto apaixonante.
-                            Com a chegada do amigo Daniel, que tinha experiência com culinária e receitas com um toque especial, o sonho virou realidade.</p>
+                    <div class="about-text">
+                        <h3>How it started</h3>
+                        <p>It all began with a casual conversation about opening a coffee shop, and it quickly turned into a project we fell in love with.
+                            When our friend Daniel joined, bringing his cooking experience and recipes with a special touch, the dream became real.</p>
                     </div>
-                    <img class="img-about" id="cafeAbout" src="static/img/aboutUs.png" alt="Copo de café em pixel art">
+                    <img class="about-img" id="coffee-cup" src="static/img/about-us.png" alt="Pixel art coffee cup">
                 </div>
                 <div class="flex">
-                    <div class="div-about">
-                        <h3>Cardápio único</h3>
-                        <p>Descubra o nosso cardápio cuidadosamente elaborado, onde cada item é uma celebração de sabores. Desde cafés artesanais até deliciosos quitutes, oferecemos uma variedade de opções para satisfazer todos os paladares.</p>
-                        <a class="link-about" href="#section-menu">Explorar o cardápio</a>
+                    <div class="about-text">
+                        <h3>A one-of-a-kind menu</h3>
+                        <p>Discover our carefully crafted menu, where every item is a celebration of flavor. From artisan coffees to delicious treats, we have something for every taste.</p>
+                        <a class="about-link" href="#section-menu">Explore the menu</a>
                     </div>
-                    <img class="img-about" id="xicaraPixel" src="static/img/aboutUs2.png" alt="Xícara de café em pixel art">
+                    <img class="about-img" id="pixel-cup" src="static/img/about-us-2.png" alt="Pixel art coffee mug">
                 </div>
             </section>
 
-            <section id="planos-cta" aria-labelledby="titulo-planos">
+            <section id="plans-cta" aria-labelledby="plans-title">
                 <div>
-                    <h2 id="titulo-planos">Vire membro da Coffe Line</h2>
-                    <p>Biblioteca de mangás, latte art personalizada e menu exclusivo. Escolha entre os planos Comum, Premium e VIP.</p>
+                    <h2 id="plans-title">Become a Coffee Line member</h2>
+                    <p>Manga library, custom latte art and an exclusive menu. Choose between the Basic, Premium and VIP plans.</p>
                 </div>
-                <a class="botao-planos" href="cadastro.html">Conhecer os planos</a>
+                <a class="plans-button" href="signup.html">See the plans</a>
             </section>
         </main>
 
         <footer>
-            <div class="rodape">
-                <div class="rodape-col">
-                    <img src="static/img/logo.png" alt="Coffe Line" class="rodape-logo" width="64" height="64">
-                    <p>Café, quadrinhos e arte na mesma xícara.</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="static/img/logo.png" alt="Coffee Line" class="footer-logo" width="64" height="64">
+                    <p>Coffee, comics and art in the same cup.</p>
                 </div>
-                <div class="rodape-col">
-                    <h4>Horário</h4>
-                    <p>Seg a Sex · 7h às 20h</p>
-                    <p>Sáb e Dom · 9h às 22h</p>
+                <div class="footer-col">
+                    <h4>Hours</h4>
+                    <p>Mon to Fri · 7am to 8pm</p>
+                    <p>Sat and Sun · 9am to 10pm</p>
                 </div>
-                <div class="rodape-col">
-                    <h4>Navegar</h4>
-                    <a href="#header">Inicio</a>
-                    <a href="#section-menu">Cardápio</a>
-                    <a href="#aboutUs">Sobre Nós</a>
-                    <a href="cadastro.html">Planos</a>
+                <div class="footer-col">
+                    <h4>Browse</h4>
+                    <a href="#header">Home</a>
+                    <a href="#section-menu">Menu</a>
+                    <a href="#about-us">About Us</a>
+                    <a href="signup.html">Plans</a>
                 </div>
-                <div class="rodape-col">
-                    <h4>Siga a gente</h4>
-                    <div class="rodape-redes">
-                        <span><img src="static/img/face.png" alt="Facebook"></span>
-                        <span><img src="static/img/instagran.png" alt="Instagram"></span>
+                <div class="footer-col">
+                    <h4>Follow us</h4>
+                    <div class="footer-social">
+                        <span><img src="static/img/facebook.png" alt="Facebook"></span>
+                        <span><img src="static/img/instagram.png" alt="Instagram"></span>
                     </div>
                 </div>
             </div>
-            <p class="copyright">&copy; <span id="ano-atual">2024</span> Coffe Line. Feito com café.</p>
+            <p class="copyright">&copy; <span id="current-year">2024</span> Coffee Line. Made with coffee.</p>
         </footer>
 
-        <script src="static/JavaScript/cardapio.js"></script>
-        <script src="static/JavaScript/auth.js"></script>
-        <script src="static/JavaScript/CF.js"></script>
-        <script src="static/JavaScript/CF2.js"></script>
+        <script src="static/js/menu-data.js"></script>
+        <script src="static/js/auth.js"></script>
+        <script src="static/js/home.js"></script>
+        <script src="static/js/login.js"></script>
     </body>
 </html>

@@ -1,31 +1,31 @@
 @font-face {
     font-family: 'eczar';
-    src: url(../css/static/Eczar-Medium.ttf);
+    src: url(../fonts/Eczar-Medium.ttf);
     font-display: swap;
 }
 @font-face {
     font-family: 'eczar';
-    src: url(../css/static/Eczar-Bold.ttf);
+    src: url(../fonts/Eczar-Bold.ttf);
     font-weight: 700;
     font-display: swap;
 }
 @font-face {
     font-family:'fortheenas';
-    src: url(Fortheenas_01.otf) format('opentype');
+    src: url(../fonts/Fortheenas_01.otf) format('opentype');
     font-display: swap;
 }
 
 :root{
-    --vermelho:#b70000;
-    --preto:#1f1f1f;
-    --cinza-1:#232323;
-    --cinza-2:#272727;
-    --cinza-3:#2f2f2f;
-    --cinza-4:#353535;
-    --cinza-5:#606060;
-    --texto-suave:#c9c9c9;
-    --destaque:#e8b85c;
-    --sombra-bloco:#2c2c2c 2px 2px 1px 4px;
+    --red:#b70000;
+    --black:#1f1f1f;
+    --gray-1:#232323;
+    --gray-2:#272727;
+    --gray-3:#2f2f2f;
+    --gray-4:#353535;
+    --gray-5:#606060;
+    --text-muted:#c9c9c9;
+    --accent:#e8b85c;
+    --block-shadow:#2c2c2c 2px 2px 1px 4px;
 }
 
 *{
@@ -35,7 +35,7 @@
 }
 body{
     min-height:100%;
-    background-color: var(--cinza-2);
+    background-color: var(--gray-2);
     color:white;
     overflow-x: hidden;
     font-family: 'eczar', Georgia, serif;
@@ -53,10 +53,10 @@ button{
     cursor: pointer;
 }
 :focus-visible{
-    outline: 3px solid var(--destaque);
+    outline: 3px solid var(--accent);
     outline-offset: 3px;
 }
-.pular{
+.skip-link{
     position: absolute;
     left: -9999px;
     top: 8px;
@@ -66,9 +66,9 @@ button{
     padding: 8px 12px;
     border-radius: 5px;
 }
-.pular:focus{ left: 8px; }
+.skip-link:focus{ left: 8px; }
 
-/* ---------------- Cabeçalho ---------------- */
+/* ---------------- Header ---------------- */
 header{
     position:relative;
     height:100vh;
@@ -76,12 +76,12 @@ header{
     width:100%;
     overflow: hidden;
 }
-.cabeçalho{
+.header-bar{
     display:flex;
     position:absolute;
     height:15%;
     min-height: 64px;
-    background-color: var(--cinza-2);
+    background-color: var(--gray-2);
     box-shadow:2px 2px 2px 1px #0000004f;
     width:100%;
     justify-content:space-between;
@@ -89,7 +89,7 @@ header{
     z-index:2;
     padding: 0 10px;
 }
-.logo-botao{
+.logo-button{
     width: 15%;
     min-width: 140px;
     display: flex;
@@ -107,14 +107,14 @@ nav ul{
     flex-wrap: wrap;
     position: relative;
 }
-.li-header{
+.nav-item{
     font-family:'eczar', sans-serif;
     font-weight: 300;
     position: relative;
     margin: 3px;
     user-select: none;
 }
-.scroll-text{
+.nav-link{
     text-decoration: none;
     color: white;
     font-size: 1.05rem;
@@ -123,7 +123,7 @@ nav ul{
     position: relative;
     transition: color .2s ease;
 }
-.scroll-text::after{
+.nav-link::after{
     content:'';
     position: absolute;
     left: 0; right: 0; bottom: 6px;
@@ -133,27 +133,27 @@ nav ul{
     transform-origin: left;
     transition: transform .25s ease;
 }
-.scroll-text:hover{ color:#adadad; }
-.scroll-text:hover::after{ transform: scaleX(1); }
-#botao-contato[aria-expanded="true"]{ color:#adadad; }
-.botao-entrar{
+.nav-link:hover{ color:#adadad; }
+.nav-link:hover::after{ transform: scaleX(1); }
+#contact-button[aria-expanded="true"]{ color:#adadad; }
+.login-button{
     border: 1px solid white;
     border-radius: 15px;
     padding: 4px 16px;
 }
-.botao-entrar::after{ display: none; }
-.botao-entrar:hover{
+.login-button::after{ display: none; }
+.login-button:hover{
     background: white;
-    color: var(--cinza-2);
+    color: var(--gray-2);
 }
-#saudacao{
+#greeting{
     font-size: 1.05rem;
-    color: var(--texto-suave);
+    color: var(--text-muted);
 }
-.link-sair{ font-size: .95rem; }
+.logout-link{ font-size: .95rem; }
 [hidden]{ display: none !important; }
 
-.janela-contato{
+.contact-popup{
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     border:1px solid rgba(0, 0, 0, 0.548);
@@ -168,24 +168,24 @@ nav ul{
     opacity: 0.95;
     z-index: 5;
 }
-#div-contato{
+#contact-links{
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: center;
 }
-.link-contato{
+.contact-link{
     width: 56px;
     display: block;
 }
-.Contato{
+.contact-icon{
     width: 100%;
     height: auto;
     display: block;
 }
 
 /* ---------------- Banner ---------------- */
-.cat-image{
+.slide{
     position: absolute;
     top:15%;
     right: 0;
@@ -196,11 +196,11 @@ nav ul{
     display:flex;
     will-change: transform;
 }
-#backGround-1{ background-image:url(../img/cat-image.png); }
-#backGround-2{ background-image:url(../img/gibis.png); }
-#backGround-3{ background-image:url(../img/van-gogh.jpg); }
+#slide-1{ background-image:url(../img/cat-image.png); }
+#slide-2{ background-image:url(../img/comics.png); }
+#slide-3{ background-image:url(../img/van-gogh.jpg); }
 
-.cat-txt{
+.slide-title{
     letter-spacing: 0.01em;
     font-family: 'fortheenas', sans-serif;
     font-size: clamp(1.6rem, 3vw, 3.4rem);
@@ -215,7 +215,7 @@ nav ul{
     border-radius: 5px;
     padding: 5px 10px;
 }
-.cat-txt2{
+.slide-text{
     position: absolute;
     width: 40%;
     font-size: clamp(1rem, 1.6vw, 1.6rem);
@@ -228,7 +228,7 @@ nav ul{
     top:38%;
     left:10%;
 }
-.pontos-slide{
+.slide-dots{
     position: absolute;
     bottom: 28px;
     left: 10%;
@@ -236,13 +236,13 @@ nav ul{
     gap: 6px;
     z-index: 1;
 }
-.ponto-slide{
+.slide-dot{
     width: 44px;
     height: 44px;
     display: grid;
     place-items: center;
 }
-.ponto-slide::before{
+.slide-dot::before{
     content:'';
     width: 14px;
     height: 14px;
@@ -251,7 +251,7 @@ nav ul{
     background: #000000c3;
     transition: background .2s ease, transform .2s ease;
 }
-.ponto-slide[aria-current="true"]::before{
+.slide-dot[aria-current="true"]::before{
     background: white;
     transform: scale(1.15);
 }
@@ -262,7 +262,7 @@ nav ul{
     z-index: 1;
     font-family: 'eczar', sans-serif;
     font-size: 1.15rem;
-    color: var(--cinza-2);
+    color: var(--gray-2);
     background: white;
     text-decoration: none;
     border-radius: 15px;
@@ -279,9 +279,9 @@ nav ul{
     box-shadow: 2px 2px 0 #000000c3;
 }
 
-/* ---------------- Cardápio ---------------- */
+/* ---------------- Menu ---------------- */
 #section-menu{
-    background-color: var(--cinza-2);
+    background-color: var(--gray-2);
     position: relative;
     box-shadow:0 -50px 100px #000;
     display: flex;
@@ -292,23 +292,23 @@ nav ul{
     width: 50%;
     min-height: 100vh;
 }
-#cardapio{
-    background-color: var(--cinza-3);
+#menu-panel{
+    background-color: var(--gray-3);
     position: relative;
     display: flex;
     flex-direction: column;
     padding: 0 5% 24px;
 }
-#comidas{
-    background-image:url(../img/cardapio/coca.svg), url(../img/background-black.png);
+#menu-banner{
+    background-image:url(../img/menu/coke.svg), url(../img/background-black.png);
     background-position: 50% 70%;
     background-size: cover;
     background-repeat: no-repeat;
     filter:saturate(25%);
     transition: filter .4s ease;
 }
-#comidas:hover{ filter: saturate(70%); }
-#comidas.banner-pixel{
+#menu-banner:hover{ filter: saturate(70%); }
+#menu-banner.banner-pixel{
     background-size: 55%, cover;
     background-position: center, center;
     image-rendering: pixelated;
@@ -321,7 +321,7 @@ nav ul{
     margin: 18px 0 10px;
     gap: 12px;
 }
-#cardapio-escolha{
+#menu-category{
     font-family: eczar;
     font-size: 30px;
     min-width: 7ch;
@@ -333,7 +333,7 @@ nav ul{
     border:solid 1px black;
     border-radius: 10px;
     background: #efefef;
-    color: var(--cinza-2);
+    color: var(--gray-2);
     display: grid;
     place-items: center;
     transition: background .15s ease, transform .1s ease;
@@ -349,73 +349,73 @@ nav ul{
     stroke-linecap: round;
     stroke-linejoin: round;
 }
-.infoIguaria{
+.menu-info{
     flex: 1;
     min-height: 260px;
 }
-.infoIguaria.trocando{ animation: aparecer .35s ease-out; }
-@keyframes aparecer{
+.menu-info.switching{ animation: fade-in .35s ease-out; }
+@keyframes fade-in{
     from{ opacity: 0; transform: translateY(8px); }
     to{ opacity: 1; transform: none; }
 }
-#nome-produto{
+#product-name{
     font-size: clamp(1.9rem, 3.2vw, 3.1rem);
     line-height: 1.15;
 }
-#preco-produto{
+#product-price{
     font-size: clamp(1.7rem, 2.8vw, 2.8rem);
     margin:6px 0 14px 0;
-    color: var(--destaque);
+    color: var(--accent);
     font-variant-numeric: tabular-nums;
 }
-#info-produto{
+#product-info{
     font-size: clamp(1rem, 1.25vw, 1.3rem);
-    color: var(--texto-suave);
+    color: var(--text-muted);
     max-width: 60ch;
 }
-.menu-2{
+.menu-grid-wrap{
     background-color: rgb(31, 31, 31);
     border-radius: 15px;
-    box-shadow: var(--sombra-bloco);
+    box-shadow: var(--block-shadow);
     padding: 16px;
     margin-top: 16px;
 }
-.grupoDeIguarias{
+.menu-grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px 10px;
     justify-items: center;
 }
-.iguarias{
+.menu-item{
     width: clamp(64px, 7vw, 100px);
     aspect-ratio: 1;
     border-radius: 50%;
     border: #000 solid 1px;
     overflow: hidden;
-    background: var(--cinza-3);
+    background: var(--gray-3);
     transition: transform .2s ease, box-shadow .2s ease;
 }
-.iguarias img{
+.menu-item img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
-.iguarias img.pixel{
+.menu-item img.pixel{
     object-fit: contain;
     padding: 12%;
     image-rendering: pixelated;
 }
-.iguarias:hover{ transform: scale(1.06); }
-.iguarias[aria-pressed="true"]{
+.menu-item:hover{ transform: scale(1.06); }
+.menu-item[aria-pressed="true"]{
     box-shadow: 0 0 0 3px white;
 }
 
-/* ---------------- Sobre nós ---------------- */
-#aboutUs{
+/* ---------------- About us ---------------- */
+#about-us{
     min-height:100vh;
     width:100%;
-    background-color:var(--cinza-4);
+    background-color:var(--gray-4);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -427,68 +427,68 @@ nav ul{
     justify-content: space-around;
     align-items: center;
     min-height: 44vh;
-    box-shadow: var(--sombra-bloco);
+    box-shadow: var(--block-shadow);
     width: 100%;
     border-radius: 10px;
     padding: 20px;
     gap: 20px;
 }
-.div-about{
-    background-color:var(--cinza-5);
+.about-text{
+    background-color:var(--gray-5);
     border-radius: 15px;
     width: 34%;
     padding: 18px 20px;
-    box-shadow: var(--sombra-bloco);
+    box-shadow: var(--block-shadow);
 }
-.div-about h3{
+.about-text h3{
     font-family: eczar;
     font-size: clamp(2rem, 3.5vw, 3.4rem);
     line-height: 1.1;
     margin-bottom: 10px;
 }
-.div-about p{
+.about-text p{
     font-size: clamp(1rem, 1.15vw, 1.25rem);
 }
-.link-about{
+.about-link{
     display: inline-block;
     margin-top: 12px;
     color: white;
     font-weight: 700;
 }
-.img-about{
+.about-img{
     display: block;
     width: 20%;
     height: auto;
     opacity: .5;
     image-rendering: pixelated;
 }
-#xicaraPixel{
+#pixel-cup{
     width: 20%;
     opacity: .8;
 }
 
-/* ---------------- Chamada para planos ---------------- */
-#planos-cta{
-    background: var(--cinza-1) url(../img/background-black.png) center / cover;
+/* ---------------- Plans call to action ---------------- */
+#plans-cta{
+    background: var(--gray-1) url(../img/background-black.png) center / cover;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
     padding: 64px 8%;
 }
-#planos-cta h2{
+#plans-cta h2{
     font-family: 'fortheenas', sans-serif;
     font-size: clamp(1.8rem, 3vw, 3rem);
     line-height: 1.15;
 }
-#planos-cta p{
-    color: var(--texto-suave);
+#plans-cta p{
+    color: var(--text-muted);
     max-width: 55ch;
     margin-top: 8px;
 }
-.botao-planos{
+.plans-button{
     flex-shrink: 0;
-    background: var(--vermelho);
+    background: var(--red);
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
@@ -497,58 +497,58 @@ nav ul{
     box-shadow: 4px 4px 0 black;
     transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
-.botao-planos:hover{
+.plans-button:hover{
     background: #d10000;
     transform: translate(-2px,-2px);
     box-shadow: 6px 6px 0 black;
 }
 
-/* ---------------- Rodapé ---------------- */
+/* ---------------- Footer ---------------- */
 footer{
-    background-color: var(--cinza-1);
+    background-color: var(--gray-1);
     position: relative;
     box-shadow: black 0 -10px 200px;
     padding: 40px 8% 20px;
 }
-.rodape{
+.footer-grid{
     display: grid;
     grid-template-columns: 1.4fr 1fr 1fr 1fr;
     gap: 28px;
 }
-.rodape-col{
+.footer-col{
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
-.rodape-col h4{
+.footer-col h4{
     font-size: 1.1rem;
     margin-bottom: 4px;
 }
-.rodape-col p, .rodape-col a{
-    color: var(--texto-suave);
+.footer-col p, .footer-col a{
+    color: var(--text-muted);
     text-decoration: none;
 }
-.rodape-col a{
+.footer-col a{
     padding: 2px 0;
     width: fit-content;
 }
-.rodape-col a:hover{ color: white; text-decoration: underline; }
-.rodape-logo{
+.footer-col a:hover{ color: white; text-decoration: underline; }
+.footer-logo{
     width: 64px;
     height: 64px;
     border-radius: 50%;
     background: white;
 }
-.rodape-redes{
+.footer-social{
     display: flex;
     gap: 12px;
 }
-.rodape-redes span{
+.footer-social span{
     width: 44px;
     height: 44px;
     display: block;
 }
-.rodape-redes img{
+.footer-social img{
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -563,54 +563,54 @@ footer{
     text-align: center;
 }
 
-/* ---------------- Responsivo ---------------- */
+/* ---------------- Responsive ---------------- */
 @media (max-width: 900px){
-    .cabeçalho{
+    .header-bar{
         height: auto;
         flex-direction: column;
         align-items: stretch;
         padding: 8px 16px;
         gap: 4px;
     }
-    .logo-botao{ width: 150px; }
+    .logo-button{ width: 150px; }
     nav ul{ justify-content: flex-start; gap: 0 16px; }
-    .scroll-text{ font-size: 1rem; }
-    .cat-image{ top: 0; height: 100%; }
-    .cat-txt{
+    .nav-link{ font-size: 1rem; }
+    .slide{ top: 0; height: 100%; }
+    .slide-title{
         top: 30%;
         left: 16px;
         max-width: calc(100% - 32px);
     }
-    .cat-txt2{
+    .slide-text{
         top: auto;
         bottom: 120px;
         left: 16px;
         width: calc(100% - 32px);
         max-width: 520px;
     }
-    .pontos-slide{ left: 16px; bottom: 40px; }
+    .slide-dots{ left: 16px; bottom: 40px; }
     .cta-hero{ right: 16px; }
 
     #section-menu{ flex-direction: column-reverse; }
     .menu{ width: 100%; min-height: 0; }
-    #comidas{ height: 42vh; }
-    #cardapio{ padding: 0 16px 24px; }
-    .infoIguaria{ min-height: 0; }
+    #menu-banner{ height: 42vh; }
+    #menu-panel{ padding: 0 16px 24px; }
+    .menu-info{ min-height: 0; }
 
     .flex{
         flex-direction: column;
         text-align: left;
     }
-    .div-about{ width: 100%; }
-    .img-about, #xicaraPixel{ width: 40%; max-width: 220px; }
+    .about-text{ width: 100%; }
+    .about-img, #pixel-cup{ width: 40%; max-width: 220px; }
 
-    #planos-cta{
+    #plans-cta{
         flex-direction: column;
         align-items: flex-start;
         padding: 48px 16px;
     }
     footer{ padding: 32px 16px 16px; }
-    .rodape{ grid-template-columns: 1fr 1fr; }
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce){

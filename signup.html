@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Choose your Coffee Line plan: Basic, Premium or VIP.">
+    <title>Sign up | Coffee Line</title>
+    <link rel="icon" href="static/img/logo.png" type="image/png">
+    <link rel="stylesheet" href="static/css/signup.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-link" aria-label="Coffee Line, home page">
+            <img src="static/img/name-header.png" alt="">
+        </a>
+        <nav aria-label="Main">
+            <ul>
+                <li class="nav-item">
+                    <a href="index.html" class="header-link">Site</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#section-menu" class="header-link">Menu</a>
+                </li>
+                <li class="nav-item" id="contact-item">
+                    <button type="button" id="contact-button" class="header-link" onclick="toggleContact()" aria-expanded="false" aria-controls="contact-popup">Contact</button>
+                    <dialog class="contact-popup" id="contact-popup">
+                        <div id="contact-links">
+                            <span class="contact-link"><img class="contact-icon" src="static/img/facebook.png" alt="Facebook"></span>
+                            <span class="contact-link"><img class="contact-icon" src="static/img/instagram.png" alt="Instagram"></span>
+                        </div>
+                    </dialog>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="plans" aria-labelledby="plans-title">
+            <h1 id="plans-title" class="plans-title">Choose your plan</h1>
+            <div class="plan-list">
+                <a class="plan-link" href="#signup-basic">
+                    <div class="plan-card">
+                        <h3 id="h3-basic">Basic plan</h3>
+                        <p class="plan-price">R$29.90<span>/month</span></p>
+
+                        <h4>Manga Library Access</h4>
+                        <p>A wide selection of manga to read while you enjoy your drink.</p>
+                        <h4>Standard Latte Art</h4>
+                        <p>Traditional latte art or simple designs of popular manga characters.</p>
+                        <h4>Varied Menu</h4>
+                        <p>A range of drinks like coffee and tea, plus snacks to go with your reading.</p>
+
+                        <span class="choose-plan">Get Basic</span>
+                    </div>
+                </a>
+                <a class="plan-link" href="#signup-premium">
+                    <div class="plan-card" id="premium-card">
+                        <span class="plan-badge">Most popular</span>
+                        <h3 id="h3-premium">Premium plan</h3>
+                        <p class="plan-price">R$59.90<span>/month</span></p>
+
+                        <h4>Exclusive Manga Library</h4>
+                        <p>An exclusive section with the latest releases, popular series and special editions.</p>
+                        <h4>Exclusive Menu</h4>
+                        <p>Signature drinks inspired by famous manga, named after characters and stories.</p>
+                        <h4>Custom Latte Art</h4>
+                        <p>Pick latte art inspired by your favorite manga or ask for a one-off design.</p>
+
+                        <span class="choose-plan">Get Premium</span>
+                    </div>
+                </a>
+                <a class="plan-link" href="#signup-vip">
+                    <div class="plan-card" id="vip-card">
+                        <h3 id="h3-vip">VIP plan</h3>
+                        <p class="plan-price">R$99.90<span>/month</span></p>
+
+                        <h4>Custom Manga Picks</h4>
+                        <p>Request specific manga to be added to your collection at the coffee shop.</p>
+                        <h4>Table Service</h4>
+                        <p>We serve you at your table so you never have to leave your reading spot.</p>
+                        <h4>Exclusive Latte Art</h4>
+                        <p>A specialized barista creates exclusive designs of your favorite characters.</p>
+
+                        <span class="choose-plan">Get VIP</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="signup-basic" class="signup-section" data-plan="basic" data-price="29.90" aria-labelledby="title-basic">
+            <div class="signup-wrap">
+                <h2 id="title-basic" class="signup-title">Basic</h2>
+            </div>
+        </section>
+        <section id="signup-premium" class="signup-section" data-plan="premium" data-price="59.90" aria-labelledby="title-premium">
+            <div class="signup-wrap">
+                <h2 id="title-premium" class="signup-title">Premium</h2>
+            </div>
+        </section>
+        <section id="signup-vip" class="signup-section" data-plan="vip" data-price="99.90" aria-labelledby="title-vip">
+            <div class="signup-wrap">
+                <h2 id="title-vip" class="signup-title">VIP</h2>
+            </div>
+        </section>
+    </main>
+
+    <!-- A single form, cloned by signup.js for each plan (ids get the plan as a suffix) -->
+    <template id="form-template">
+        <div class="form-wrap">
+            <form novalidate>
+                <div class="form-field">
+                    <label for="name">Full name</label>
+                    <input type="text" name="name" id="name" placeholder="Henrique Souza" autocomplete="name" required minlength="3">
+                    <small class="error" id="name-error"></small>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="birth">Birthday</label>
+                        <input type="date" name="birth" id="birth" required>
+                        <small class="error" id="birth-error"></small>
+                    </div>
+                    <div class="form-field">
+                        <label for="cpf"><abbr title="Brazilian taxpayer ID">CPF</abbr></label>
+                        <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" required>
+                        <small class="error" id="cpf-error"></small>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="first.last@email.com" autocomplete="email" required>
+                    <small class="error" id="email-error"></small>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" autocomplete="new-password" minlength="6" required>
+                        <small class="hint" id="password-error">at least 6 characters</small>
+                    </div>
+                    <div class="form-field">
+                        <label for="password2">Confirm password</label>
+                        <input type="password" name="password2" id="password2" autocomplete="new-password" required>
+                        <small class="error" id="password2-error"></small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="phone">Phone</label>
+                        <input type="tel" name="phone" id="phone" placeholder="(11) 98765-4321" autocomplete="tel" maxlength="15" required>
+                        <small class="error" id="phone-error"></small>
+                    </div>
+                    <div class="form-field">
+                        <label for="state">State</label>
+                        <select id="state" name="state" required>
+                            <option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option>
+                            <option value="AM">AM</option><option value="BA">BA</option><option value="CE">CE</option>
+                            <option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option>
+                            <option value="MA">MA</option><option value="MT">MT</option><option value="MS">MS</option>
+                            <option value="MG">MG</option><option value="PA">PA</option><option value="PB">PB</option>
+                            <option value="PR">PR</option><option value="PE">PE</option><option value="PI">PI</option>
+                            <option value="RJ">RJ</option><option value="RN">RN</option><option value="RS">RS</option>
+                            <option value="RO">RO</option><option value="RR">RR</option><option value="SC">SC</option>
+                            <option value="SP" selected>SP</option><option value="SE">SE</option><option value="TO">TO</option>
+                        </select>
+                    </div>
+                </div>
+                <fieldset class="form-field">
+                    <legend>Gender</legend>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="male" name="gender" value="male">
+                            <label for="male">Male</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="other" name="gender" value="other">
+                            <label for="other">Other</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="prefer-not" name="gender" value="prefer-not" checked>
+                            <label for="prefer-not">Prefer not to say</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="payment">Payment</label>
+                        <select id="payment" name="payment">
+                            <option value="pix">Pix</option>
+                            <option value="boleto">Boleto</option>
+                            <option value="credit">Credit card</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="coupon">Coupon</label>
+                        <input type="text" id="coupon" name="coupon" placeholder="HXW2" maxlength="4" autocomplete="off">
+                        <small class="hint" id="coupon-error"></small>
+                    </div>
+                </div>
+                <div class="summary">
+                    <span>Total per month</span>
+                    <strong class="plan-total"></strong>
+                </div>
+                <div class="form-field">
+                    <input type="submit" value="sign up">
+                </div>
+            </form>
+        </div>
+    </template>
+
+    <dialog id="alert-email" aria-labelledby="email-message">
+        <h4 id="email-message">check your email!!!</h4>
+        <p id="email-detail"></p>
+    </dialog>
+
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/signup.js"></script>
+</body>
+</html>

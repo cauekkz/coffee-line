@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'eczar';
-    src: url(../css/static/Eczar-Medium.ttf);
+    src: url(../fonts/Eczar-Medium.ttf);
     font-display: swap;
 }
 :root{
-    --comum: rgb(146, 146, 146);
+    --basic: rgb(146, 146, 146);
     --premium: rgb(96, 137, 167);
     --vip: rgb(197, 197, 72);
-    --azul-gelo: rgb(171, 200, 209);
-    --rosado: rgb(212, 140, 140);
-    --campo: rgb(164, 205, 205);
-    --verde: rgb(96, 255, 96);
+    --ice-blue: rgb(171, 200, 209);
+    --pink: rgb(212, 140, 140);
+    --field: rgb(164, 205, 205);
+    --green: rgb(96, 255, 96);
     --mono: 'Courier New', Courier, monospace;
 }
 *{
@@ -38,7 +38,7 @@ button{
 }
 [hidden]{ display: none !important; }
 
-/* ---------------- Cabeçalho ---------------- */
+/* ---------------- Header ---------------- */
 header{
     display:flex;
     position:sticky;
@@ -64,20 +64,20 @@ nav ul{
     gap: 22px;
     align-items: center;
 }
-.li-header{
+.nav-item{
     font-family:'eczar', sans-serif;
     font-weight: 300;
     position: relative;
 }
-.link-header{
+.header-link{
     text-decoration: none;
     color: white;
     font-size: 1.05rem;
     padding: 10px 2px;
     display: inline-block;
 }
-.link-header:hover, #botao-contato[aria-expanded="true"]{ color: #adadad; }
-.janela-contato{
+.header-link:hover, #contact-button[aria-expanded="true"]{ color: #adadad; }
+.contact-popup{
     background-color: white;
     border-radius: 5px;
     border:1px solid rgba(0, 0, 0, 0.548);
@@ -89,17 +89,17 @@ nav ul{
     padding: 8px;
     opacity: 0.95;
 }
-#div-contato{
+#contact-links{
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: center;
 }
-.link-contato{ width: 56px; display: block; }
-.Contato{ width: 100%; height: auto; display: block; }
+.contact-link{ width: 56px; display: block; }
+.contact-icon{ width: 100%; height: auto; display: block; }
 
-/* ---------------- Planos ---------------- */
-#planos-disponiveis{
+/* ---------------- Plans ---------------- */
+#plans{
     min-height: calc(100vh - 72px);
     width: 100%;
     background-color: rgb(22, 22, 22);
@@ -111,29 +111,29 @@ nav ul{
     gap: 28px;
     padding: 40px 16px;
 }
-.titulo-planos{
+.plans-title{
     font-family: 'eczar', sans-serif;
     font-size: clamp(2rem, 3.5vw, 3rem);
     line-height: 1.1;
 }
-.lista-planos{
+.plan-list{
     display: flex;
     justify-content: center;
     align-items: stretch;
     gap: 4%;
     width: 100%;
 }
-.links-forms{
+.plan-link{
     width: 22%;
     min-width: 250px;
     text-decoration: none;
     transition: transform .2s ease;
 }
-.links-forms:hover{ transform: translateY(-6px) scale(1.02); }
-.possivel-plano{
+.plan-link:hover{ transform: translateY(-6px) scale(1.02); }
+.plan-card{
     position: relative;
     height: 100%;
-    background: url(../img-form/comum1.png) center / cover;
+    background: url(../img/plans/basic.png) center / cover;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.563), -10px -10px 15px rgba(0, 0, 0, 0.563);
     display: flex;
     gap: 6px;
@@ -142,12 +142,12 @@ nav ul{
     border: solid black 2px;
     border-radius: 6px;
 }
-#premium-div{
-    background-image: url(../img-form/premium1.png);
+#premium-card{
+    background-image: url(../img/plans/premium.png);
     border-color: var(--premium);
 }
-#vip-div{
-    background-image: url(../img-form/vip1.png);
+#vip-card{
+    background-image: url(../img/plans/vip.png);
     border-color: var(--vip);
 }
 h3{
@@ -155,32 +155,32 @@ h3{
     font-size: 1.6rem;
     line-height: 1.2;
 }
-#h3comum{ color: var(--comum); }
-#h3premium{ color: var(--premium); }
-#h3vip{ color: var(--vip); }
-.possivel-plano h4{
-    color: var(--azul-gelo);
+#h3-basic{ color: var(--basic); }
+#h3-premium{ color: var(--premium); }
+#h3-vip{ color: var(--vip); }
+.plan-card h4{
+    color: var(--ice-blue);
     font-family: var(--mono);
     font-size: .95rem;
     margin-top: 8px;
 }
-.possivel-plano p{
-    color: var(--rosado);
+.plan-card p{
+    color: var(--pink);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
     font-size: .95rem;
 }
-.possivel-plano .preco-plano{
+.plan-card .plan-price{
     color: white;
     font-family: 'eczar', sans-serif;
     font-size: 1.9rem;
     line-height: 1.1;
     font-variant-numeric: tabular-nums;
 }
-.preco-plano span{
+.plan-price span{
     font-size: 1rem;
     color: #9a9a9a;
 }
-.selo-plano{
+.plan-badge{
     position: absolute;
     top: -14px;
     right: 14px;
@@ -192,43 +192,43 @@ h3{
     padding: 3px 10px;
     border-radius: 15px;
 }
-.escolher-plano{
+.choose-plan{
     margin-top: auto;
     padding-top: 16px;
     color: white;
     font-family: 'eczar', sans-serif;
     font-size: 1.05rem;
 }
-.escolher-plano::after{ content: ' \2192'; }
+.choose-plan::after{ content: ' \2192'; }
 
-/* ---------------- Formulários ---------------- */
-.secao-cadastro{
+/* ---------------- Forms ---------------- */
+.signup-section{
     min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     padding: 24px 16px 40px;
     flex-direction: column;
-    background: url(../img-form/comum-section.png) center / cover;
+    background: url(../img/plans/basic-section.png) center / cover;
     scroll-margin-top: 72px;
 }
-#cadastro-premium{ background-image: url(../img-form/premium-section.png); }
-#cadastro-vip{ background-image: url(../img-form/vip-section.png); }
-.cadastro-div{
+#signup-premium{ background-image: url(../img/plans/premium-section.png); }
+#signup-vip{ background-image: url(../img/plans/vip-section.png); }
+.signup-wrap{
     display: flex;
     width: 90%;
     justify-content: flex-start;
 }
-.titulo-cadastro{
+.signup-title{
     font-size: clamp(2.5rem, 5vw, 5rem);
     font-family: 'eczar', sans-serif;
     line-height: 1.1;
-    color: var(--comum);
+    color: var(--basic);
 }
-#titulo-premium{ color: rgb(70, 97, 125); }
-#titulo-vip{ color: rgb(139, 135, 48); }
+#title-premium{ color: rgb(70, 97, 125); }
+#title-vip{ color: rgb(139, 135, 48); }
 
-.div-form{
+.form-wrap{
     background-color: rgb(62, 62, 62);
     width: min(560px, 100%);
     border-radius: 10px;
@@ -240,12 +240,12 @@ form{
     flex-direction: column;
     gap: 14px;
 }
-.linha-form{
+.form-row{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 14px;
 }
-.div-sec-form{
+.form-field{
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -264,7 +264,7 @@ input[type="text"],input[type="tel"],input[type="email"],input[type="password"],
     width: 100%;
     font-size: 1rem;
     font-family: var(--mono);
-    background-color: var(--campo);
+    background-color: var(--field);
     color: #111;
     border: 2px solid transparent;
     border-radius: 4px;
@@ -278,28 +278,28 @@ small{
     font-size: .85rem;
     min-height: 1.2em;
 }
-small.erro{ color: #ff8a8a; }
-small.dica{ color: #a9a9a9; }
-small.ok{ color: var(--verde); }
-.grupo-radio{
+small.error{ color: #ff8a8a; }
+small.hint{ color: #a9a9a9; }
+small.ok{ color: var(--green); }
+.radio-group{
     display: flex;
     flex-wrap: wrap;
     gap: 4px 18px;
 }
-.radio-div{
+.radio-option{
     display: flex;
     align-items: center;
     gap: 6px;
     min-height: 36px;
 }
-.radio-div label{ font-weight: 400; }
+.radio-option label{ font-weight: 400; }
 input[type="radio"]{
     width: 18px;
     height: 18px;
-    accent-color: var(--campo);
+    accent-color: var(--field);
     cursor: pointer;
 }
-.resumo{
+.summary{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -308,18 +308,18 @@ input[type="radio"]{
     font-family: var(--mono);
     color: rgb(190, 190, 190);
 }
-.resumo strong{
+.summary strong{
     color: white;
     font-family: 'eczar', sans-serif;
     font-size: 1.5rem;
     font-variant-numeric: tabular-nums;
 }
-.resumo s{
+.summary s{
     color: #9a9a9a;
     font-size: 1rem;
 }
 input[type="submit"]{
-    background-color: var(--verde);
+    background-color: var(--green);
     color: #0c2a0c;
     font-family: 'eczar', sans-serif;
     font-size: 1.1rem;
@@ -338,7 +338,7 @@ input[type="submit"]:hover{
 }
 input[type="submit"]:disabled{ opacity: .6; cursor: wait; }
 
-/* ---------------- Alerta ---------------- */
+/* ---------------- Alert ---------------- */
 #alert-email{
     width: min(420px, 92vw);
     border-radius: 5px;
@@ -350,38 +350,38 @@ input[type="submit"]:disabled{ opacity: .6; cursor: wait; }
     background-color: rgb(24, 21, 21);
     color: white;
     border: solid black;
-    box-shadow: 0 0 0 2px var(--verde), 8px 8px 0 black;
+    box-shadow: 0 0 0 2px var(--green), 8px 8px 0 black;
     z-index: 10;
     padding: 18px 20px;
-    animation: descer .35s ease-out;
+    animation: slide-down .35s ease-out;
 }
-@keyframes descer{
+@keyframes slide-down{
     from{ opacity: 0; transform: translate(-50%, -12px); }
     to{ opacity: 1; transform: translate(-50%, 0); }
 }
-#email-mensage{
+#email-message{
     font-family: 'eczar', sans-serif;
     font-size: 1.4rem;
-    color: var(--verde);
+    color: var(--green);
 }
-#email-detalhe{
+#email-detail{
     color: #d0d0d0;
     margin-top: 4px;
 }
 
-/* ---------------- Responsivo ---------------- */
+/* ---------------- Responsive ---------------- */
 @media (max-width: 900px){
-    .lista-planos{
+    .plan-list{
         flex-direction: column;
         align-items: center;
         gap: 28px;
     }
-    .links-forms{ width: min(420px, 100%); }
-    .cadastro-div{ width: 100%; }
+    .plan-link{ width: min(420px, 100%); }
+    .signup-wrap{ width: 100%; }
 }
 @media (max-width: 520px){
-    .linha-form{ grid-template-columns: 1fr; }
-    .div-form{ padding: 18px 16px; }
+    .form-row{ grid-template-columns: 1fr; }
+    .form-wrap{ padding: 18px 16px; }
     nav ul{ gap: 14px; }
 }
 @media (prefers-reduced-motion: reduce){
