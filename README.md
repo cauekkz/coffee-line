@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="static/img/logo.png" alt="Coffe Line" width="110">
+<img src="static/img/logo.png" alt="Coffee Line" width="110">
 
-# coffe line
+# coffee line
 
-**café, quadrinhos e arte na mesma xícara**
+**coffee, comics and art in the same cup**
 
 ![HTML](https://img.shields.io/badge/HTML-1f1f1f?style=flat-square&logo=html5&logoColor=e34f26)
 ![CSS](https://img.shields.io/badge/CSS-1f1f1f?style=flat-square&logo=css3&logoColor=1572b6)
@@ -16,64 +16,66 @@
 
 ![Home](docs/home.jpg)
 
-Site de uma cafeteria fictícia onde cada xícara é uma tela em branco. Mangás e HQs pra ler na mesa, latte art de gato e de Van Gogh e um cardápio inteiro desenhado em pixel art.
+Website for a fictional coffee shop where every cup is a blank canvas. Manga and comics to read at your table, cat and Van Gogh latte art, and a whole menu drawn in pixel art.
 
-Feito só com HTML, CSS e JavaScript, sem framework e sem dependência nenhuma.
+Built with plain HTML, CSS and JavaScript: no framework, no dependencies.
 
-## o que tem
+## what's inside
 
-- **banner** com três cenas que vão passando sozinhas: o latte de gatinho, a parede de gibis e a noite estrelada
-- **cardápio** com bebidas, cafés, salgados e doces, tudo em pixel art
-- **sobre nós** contando como a ideia começou
-- **planos** Comum, Premium e VIP, com cadastro, cupom de desconto e login
-- **funciona no celular** do mesmo jeito que no computador
+- **banner** with three scenes that rotate on their own: the kitty latte, the comic book wall and the starry night
+- **menu** with drinks, coffees, savory snacks and desserts, all in pixel art
+- **about us** telling how the idea started
+- **plans** Basic, Premium and VIP, with sign-up, discount coupons and login
+- **works on mobile** just like on desktop
+
+> The site itself is in Portuguese.
 
 <br>
 
-![Cardápio](docs/cardapio.jpg)
+![Menu](docs/cardapio.jpg)
 
-![Planos](docs/planos.jpg)
+![Plans](docs/planos.jpg)
 
 <p align="center">
-  <img src="docs/mobile.jpg" alt="Versão mobile" width="600">
+  <img src="docs/mobile.jpg" alt="Mobile version" width="600">
 </p>
 
-## como rodar
+## how to run
 
-Abre o `index.html` no navegador. Só isso.
+Open `index.html` in your browser. That's it.
 
-Se preferir um servidorzinho local:
+If you'd rather use a small local server:
 
 ```bash
 python3 -m http.server
 ```
 
-e acessa `http://localhost:8000`.
+and go to `http://localhost:8000`.
 
-## cupons
+## coupons
 
-| código | desconto |
+| code | discount |
 | ------ | -------- |
 | `HXW2` | 10%      |
 | `CAFE` | 15%      |
 
-## estrutura
+## structure
 
 ```
 ├── index.html          home
-├── cadastro.html       planos e cadastro
+├── cadastro.html       plans and sign-up
 └── static/
-    ├── css/            estilos da home + fontes
-    ├── css-form/       estilos do cadastro
-    ├── JavaScript/     banner, cardápio e login
-    ├── js-form/        validação do cadastro
-    ├── img/            imagens do site
-    │   └── cardapio/   pixel art dos produtos
-    └── img-form/       fundos dos planos
+    ├── css/            home styles + fonts
+    ├── css-form/       sign-up styles
+    ├── JavaScript/     banner, menu and login
+    ├── js-form/        sign-up validation
+    ├── img/            site images
+    │   └── cardapio/   pixel art of the products
+    └── img-form/       plan backgrounds
 ```
 
 <br>
 
 <div align="center">
-<sub>feito por <a href="https://github.com/cauekkz">cauê</a> ☕</sub>
+<sub>made by <a href="https://github.com/cauekkz">cauekkz</a> ☕</sub>
 </div>
